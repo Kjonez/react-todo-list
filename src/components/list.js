@@ -1,12 +1,13 @@
 import React from 'react';
 import { todo_data } from './dummy_data';
+import './style.css';
 
 export default props => {
 
 const list = props.list.map((item, index) => {
 	return <li className="list-group-item" key={index}>{item.title}
-	<span className="btn btn-primary">Delete</span>
-	</li>
+			<span onClick={() => props.onDelete(item._id)} id="button" className="btn btn-danger">Delete</span>
+		</li>
 
 })
 	return(

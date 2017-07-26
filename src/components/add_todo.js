@@ -7,14 +7,12 @@ class Add extends Component {
 		this.state = {
 			form: {
 				title: '',
-				description: ''
+				details: ''
 			}
 		}
 	}
 
 	handleChange(e){
-		console.log('meow', e.target);
-
 		const { value, name } = e.target;
 		const { form } = this.state;
 
@@ -29,16 +27,20 @@ class Add extends Component {
 	addItem(e){
 		e.preventDefault();
 		const { form } = this.state;
-		
-		console.log('form works');
 
-		this.props.add(form);
+		this.props.add({...form});
+
+		this.setState({
+			form: {
+				title: '',
+				details: ''
+			}
+		})
 
 	}
 
 	render () {
 		const { form } = this.state;
-
 
 		return (
 			<div className="my-3">
@@ -49,8 +51,8 @@ class Add extends Component {
 						<input name="title" onChange ={(e) => this.handleChange(e)} value={form.title} className = "form-control mx-3"/>
 					</div>
 					<div className="form-group">
-						<label>Description:</label>
-						<input name = "description" onChange ={(e) => this.handleChange(e)} value={form.description} className = "form-control mx-3"/>
+						<label>Details:</label>
+						<input name = "details" onChange ={(e) => this.handleChange(e)} value={form.details} className = "form-control mx-3"/>
 					</div>
 					<button className="btn btn-primary">Add Item</button>
 

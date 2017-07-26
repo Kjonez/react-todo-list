@@ -1,6 +1,6 @@
 export const todo_data = [
 	{
-		title: 'yoyo',
+		title: 'Study',
 		description: 'yo yo yo yo boi',
 		complete: false
 	},
